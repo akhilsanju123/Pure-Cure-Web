@@ -52,6 +52,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				'pest-red': 'hsl(var(--pest-red))',
+				'pest-green': 'hsl(var(--pest-green))',
+				'pest-black': 'hsl(var(--pest-black))',
+				'pest-white': 'hsl(var(--pest-white))',
+				'pest-yellow': 'hsl(var(--pest-yellow))',
+				'pest-gray': 'hsl(var(--pest-gray))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
