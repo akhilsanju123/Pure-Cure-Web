@@ -17,17 +17,25 @@ const Footer = () => {
               Professional pest control and fumigation services with over 15,000 successful projects.
             </p>
             <div className="flex space-x-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                <Facebook className="h-5 w-5 hover:text-primary transition-colors" />
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="group">
+                <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-2 rounded-full transform transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-600/25">
+                  <Facebook className="h-4 w-4 text-white" />
+                </div>
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                <Instagram className="h-5 w-5 hover:text-primary transition-colors" />
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="group">
+                <div className="bg-gradient-to-r from-pink-500 to-purple-600 p-2 rounded-full transform transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-pink-500/25">
+                  <Instagram className="h-4 w-4 text-white" />
+                </div>
               </a>
-              <a href="https://wa.me/918341022953" target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-5 w-5 hover:text-primary transition-colors" />
+              <a href="https://wa.me/918341022953" target="_blank" rel="noopener noreferrer" className="group">
+                <div className="bg-gradient-to-r from-green-500 to-green-600 p-2 rounded-full transform transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-500/25">
+                  <MessageCircle className="h-4 w-4 text-white" />
+                </div>
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="h-5 w-5 hover:text-primary transition-colors" />
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="group">
+                <div className="bg-gradient-to-r from-blue-700 to-blue-800 p-2 rounded-full transform transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-700/25">
+                  <Linkedin className="h-4 w-4 text-white" />
+                </div>
               </a>
             </div>
           </div>

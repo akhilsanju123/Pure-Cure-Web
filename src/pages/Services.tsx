@@ -26,7 +26,7 @@ const Services = () => {
     {
       icon: Bug,
       title: "Termite Management",
-      description: "Complete termite elimination and prevention with advanced baiting systems and soil treatments.",
+      description: "Termites can silently cause significant damage to your property. Our termite management services include thorough inspections, treatment plans, and ongoing monitoring to protect your property from these destructive pests.",
       features: ["Pre-construction treatment", "Post-construction treatment", "Annual maintenance", "Warranty coverage"],
       path: "/services/termite-management",
       popular: true
@@ -34,7 +34,7 @@ const Services = () => {
     {
       icon: Target,
       title: "Rodent Management",
-      description: "Safe and effective rodent control using integrated pest management techniques.",
+      description: "Rodents are not only a nuisance but also pose health risks. Our rodent management services include inspection, removal, and sealing entry points to prevent future infestations, ensuring your home or business stays rodent-free.",
       features: ["Inspection & assessment", "Exclusion techniques", "Baiting programs", "Monitoring systems"],
       path: "/services/rodent-management",
       popular: false
@@ -42,7 +42,7 @@ const Services = () => {
     {
       icon: Shield,
       title: "Cockroach Management",
-      description: "Professional cockroach elimination with gel baits and targeted treatments.",
+      description: "Cockroaches spread diseases and are tough to eliminate. Our cockroach management program focuses on targeted treatments and preventive measures to rid your property of cockroaches and keep them from returning.",
       features: ["German cockroach control", "American cockroach control", "Residual treatments", "Follow-up services"],
       path: "/services/cockroach-management",
       popular: true
@@ -146,8 +146,7 @@ const Services = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6 text-pest-black">Our Services</h1>
             <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-              Comprehensive pest control and fumigation services tailored to meet your specific needs. 
-              From residential pest control to industrial fumigation, we have the expertise to handle it all.
+              At Pest Cure, we offer a wide range of specialized pest control services designed to address the unique needs of your home or business. Our services are tailored to eliminate pests effectively and prevent future infestations.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
               <div>

@@ -58,20 +58,10 @@ const About = () => {
               <h2 className="text-4xl font-bold mb-6 text-pest-black">Who We Are</h2>
               <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  Pest Cure Solutions & Fumigation is a leading pest control company established with the mission 
-                  to provide comprehensive, safe, and effective pest management solutions. Based in Kavali, 
-                  we have grown to become one of the most trusted names in the pest control industry.
+                  At Pest Cure, we're committed to protecting your home and business from the discomfort and damage caused by pests. With years of experience in the pest control industry, we have earned a reputation for delivering reliable, eco-friendly, and effective solutions to a wide range of pest problems. Whether you're dealing with termites, rodents, mosquitoes, or any other pest, Pest Cure has the expertise and technology to handle it.
                 </p>
                 <p>
-                  Our company specializes in both residential and commercial pest control services, offering 
-                  everything from routine pest prevention to complex industrial fumigation projects. We serve 
-                  a diverse clientele including homeowners, businesses, warehouses, and shipping vessels.
-                </p>
-                <p>
-                  What sets us apart is our commitment to using the latest technology, eco-friendly products, 
-                  and proven methodologies to deliver results that exceed our clients' expectations. Our team 
-                  of 59 expert professionals undergoes continuous training to stay current with industry 
-                  best practices and emerging pest control techniques.
+                  We believe in treating every pest issue with the utmost care and attention to detail, providing fast, safe, and affordable pest management solutions that offer long-term protection. Our team of certified pest control professionals is equipped with the latest tools and knowledge to ensure your property remains pest-free.
                 </p>
               </div>
             </div>
@@ -116,34 +106,36 @@ const About = () => {
               <Card className="border-0 shadow-md">
                 <CardContent className="p-8">
                   <Eye className="h-12 w-12 text-primary mb-4" />
-                  <h3 className="text-2xl font-semibold mb-4">Our Vision</h3>
+                  <h3 className="text-2xl font-semibold mb-4">Our Mission</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    To be the leading pest control company in India, known for our innovative solutions, 
-                    exceptional customer service, and commitment to creating pest-free environments that 
-                    promote health, safety, and peace of mind for our clients.
+                    To provide comprehensive and environmentally responsible pest control solutions that protect your home, family, and business from the harmful effects of pests.
                   </p>
                 </CardContent>
               </Card>
               <Card className="border-0 shadow-md">
                 <CardContent className="p-8">
                   <Heart className="h-12 w-12 text-primary mb-4" />
-                  <h3 className="text-2xl font-semibold mb-4">Our Values</h3>
+                  <h3 className="text-2xl font-semibold mb-4">Why Choose Us?</h3>
                   <ul className="space-y-2 text-muted-foreground">
                     <li className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 mr-2 flex-shrink-0" />
-                      <span>Safety first in all our operations</span>
+                      <span>Experienced Team: Our technicians are highly trained and use the latest pest control techniques</span>
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 mr-2 flex-shrink-0" />
-                      <span>Environmental responsibility</span>
+                      <span>Eco-Friendly Solutions: We prioritize environmentally safe methods, ensuring the safety of your family, pets, and the environment</span>
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 mr-2 flex-shrink-0" />
-                      <span>Transparent and honest communication</span>
+                      <span>Comprehensive Services: From residential to commercial pest control, we handle all types of pest issues with customized solutions</span>
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 mr-2 flex-shrink-0" />
-                      <span>Continuous improvement and innovation</span>
+                      <span>Affordable Rates: We offer competitive pricing with no hidden fees—just honest and reliable service</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 mr-2 flex-shrink-0" />
+                      <span>Satisfaction Guaranteed: If pests return, so do we—our work is guaranteed!</span>
                     </li>
                   </ul>
                 </CardContent>

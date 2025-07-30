@@ -23,6 +23,9 @@ import {
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
+import slider1 from '@/assets/slider-1.jpg';
+import slider2 from '@/assets/slider-2.jpg';
+import slider3 from '@/assets/slider-3.jpg';
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -35,21 +38,21 @@ const Index = () => {
 
   const slides = [
     {
-      image: "/lovable-uploads/ce25489f-b51e-4332-aba2-878e4a2cd8cd.png",
+      image: slider1,
       title: "Professional Pest Control Solutions",
-      subtitle: "Protecting Your Space from Unwanted Pests",
+      subtitle: "Protecting your home and business with expert pest management services",
       cta: "Get Free Quote"
     },
     {
-      image: "/lovable-uploads/ce25489f-b51e-4332-aba2-878e4a2cd8cd.png",
-      title: "Expert Fumigation Services",
-      subtitle: "Warehouse, Vessel & Container Fumigation",
+      image: slider2,
+      title: "Advanced Fumigation Services", 
+      subtitle: "Industrial-grade fumigation for warehouses, vessels, and containers",
       cta: "Learn More"
     },
     {
-      image: "/lovable-uploads/ce25489f-b51e-4332-aba2-878e4a2cd8cd.png",
-      title: "15,000+ Successful Projects",
-      subtitle: "Trusted by Thousands of Satisfied Clients",
+      image: slider3,
+      title: "Eco-Friendly Pest Solutions",
+      subtitle: "Safe and effective treatments that protect your family and environment",
       cta: "View Services"
     }
   ];
