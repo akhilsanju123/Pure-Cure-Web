@@ -169,7 +169,7 @@ const Index = () => {
       
       {/* Hero Section with Slider */}
       <section className="relative h-[600px] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-pest-red/90 to-pest-green/90 z-10" />
+        
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -281,95 +281,191 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-16 bg-pest-gray">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-12 text-pest-black">Why Choose Us?</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2">Advanced Technology</h3>
-                    <p className="text-muted-foreground">We use the latest pest control technology and eco-friendly solutions.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2">Experienced Team</h3>
-                    <p className="text-muted-foreground">59 expert professionals with years of field experience.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2">Comprehensive Services</h3>
-                    <p className="text-muted-foreground">From residential to industrial fumigation solutions.</p>
-                  </div>
-                </div>
-              </div>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2">Affordable Pricing</h3>
-                    <p className="text-muted-foreground">Competitive rates with transparent pricing and no hidden costs.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2">Quick Response</h3>
-                    <p className="text-muted-foreground">Emergency services available with rapid response times.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2">Follow-up Support</h3>
-                    <p className="text-muted-foreground">Post-treatment monitoring and ongoing support services.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Services Section */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-pest-black">Our Services</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Our Services</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Comprehensive pest control solutions tailored to your specific needs
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          {/* Desktop View */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const Icon = service.icon;
+              const imageUrls = [
+                "1558618666-c60fa7d28c8c", // termite
+                "1506905925-eb800648ba68", // rodent  
+                "1633332290-1d5d8e8308e7", // cockroach
+                "1558168848-a8c1d8f0f5cb", // flying insects
+                "1571019613-9d66c1e6d832", // mosquito
+                "1566306885-56ac4b5c5866"  // warehouse
+              ];
               return (
-                <Card key={index} className="hover:shadow-lg transition-shadow border-0 shadow-md">
-                  <CardContent className="p-6 text-center">
+                <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg">
+                  <CardContent className="p-8">
+                    <div className="relative mb-6">
+                      <img 
+                        src={`https://images.unsplash.com/photo-${imageUrls[index]}?w=400&h=250&fit=crop&auto=format`}
+                        alt={service.title}
+                        className="w-full h-48 object-cover rounded-lg"
+                      />
+                    </div>
                     <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Icon className="h-8 w-8 text-primary" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                    <p className="text-muted-foreground mb-4">{service.description}</p>
-                    <Button asChild variant="outline">
-                      <Link to={service.path}>Learn More</Link>
-                    </Button>
+                    <h3 className="text-2xl font-bold text-foreground mb-4 text-center">{service.title}</h3>
+                    <p className="text-muted-foreground text-lg leading-relaxed text-center mb-6">{service.description}</p>
+                    <div className="text-center">
+                      <Button asChild variant="outline">
+                        <Link to={service.path}>Learn More</Link>
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               );
             })}
           </div>
-          <div className="text-center mt-8">
+
+          {/* Mobile Slideshow */}
+          <div className="md:hidden">
+            <div className="relative">
+              <div className="overflow-hidden rounded-xl">
+                <div 
+                  className="flex transition-transform duration-300 ease-in-out"
+                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                >
+                  {services.map((service, index) => {
+                    const Icon = service.icon;
+                    const imageUrls = [
+                      "1558618666-c60fa7d28c8c", // termite
+                      "1506905925-eb800648ba68", // rodent  
+                      "1633332290-1d5d8e8308e7", // cockroach
+                      "1558168848-a8c1d8f0f5cb", // flying insects
+                      "1571019613-9d66c1e6d832", // mosquito
+                      "1566306885-56ac4b5c5866"  // warehouse
+                    ];
+                    return (
+                      <div key={index} className="w-full flex-shrink-0 px-4">
+                        <Card className="shadow-lg border-0">
+                          <CardContent className="p-6">
+                            <div className="relative mb-4">
+                              <img 
+                                src={`https://images.unsplash.com/photo-${imageUrls[index]}?w=350&h=200&fit=crop&auto=format`}
+                                alt={service.title}
+                                className="w-full h-40 object-cover rounded-lg"
+                              />
+                            </div>
+                            <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                              <Icon className="h-6 w-6 text-primary" />
+                            </div>
+                            <h3 className="text-xl font-bold text-foreground mb-3 text-center">{service.title}</h3>
+                            <p className="text-muted-foreground leading-relaxed text-center mb-4">{service.description}</p>
+                            <div className="text-center">
+                              <Button asChild variant="outline" size="sm">
+                                <Link to={service.path}>Learn More</Link>
+                              </Button>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              
+              {/* Navigation Arrows */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-primary text-primary-foreground rounded-full p-2 shadow-lg hover:bg-primary/90 transition-colors z-10"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-primary-foreground rounded-full p-2 shadow-lg hover:bg-primary/90 transition-colors z-10"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+              
+              {/* Dots Indicator */}
+              <div className="flex justify-center mt-6 space-x-2">
+                {services.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-colors ${
+                      index === currentSlide ? 'bg-primary' : 'bg-muted-foreground/30'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
             <Button asChild size="lg">
               <Link to="/services">View All Services</Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-pest-gray">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-foreground">Why Choose Us?</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground mb-3">Advanced Technology</h3>
+                    <p className="text-muted-foreground text-lg leading-relaxed">We use the latest pest control technology and eco-friendly solutions.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground mb-3">Experienced Team</h3>
+                    <p className="text-muted-foreground text-lg leading-relaxed">59 expert professionals with years of field experience.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground mb-3">Comprehensive Services</h3>
+                    <p className="text-muted-foreground text-lg leading-relaxed">From residential to industrial fumigation solutions.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground mb-3">Affordable Pricing</h3>
+                    <p className="text-muted-foreground text-lg leading-relaxed">Competitive rates with transparent pricing and no hidden costs.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground mb-3">Quick Response</h3>
+                    <p className="text-muted-foreground text-lg leading-relaxed">Emergency services available with rapid response times.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground mb-3">Follow-up Support</h3>
+                    <p className="text-muted-foreground text-lg leading-relaxed">Post-treatment monitoring and ongoing support services.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

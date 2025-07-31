@@ -107,7 +107,7 @@ const Header = () => {
                 </a>
               </div>
               <Button asChild>
-                <a href="tel:+918341022953">Call Now</a>
+                <a href="/brochure.pdf" download="Pest-Cure-Brochure.pdf">Download</a>
               </Button>
             </div>
 
