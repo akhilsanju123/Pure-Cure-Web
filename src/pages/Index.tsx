@@ -1,16 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Badge } from '@/components/ui/badge';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { 
-  Users, 
-  Award, 
-  CheckCircle, 
+import {
+  Users,
+  Award,
+  CheckCircle,
   Star,
   Shield,
   Clock,
@@ -19,14 +18,11 @@ import {
   Bug,
   Home,
   Building,
-  Ship,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
 } from 'lucide-react';
-// import slider1 from '@/assets/slider-1.jpg';
 import slider2 from '@/assets/2.png';
 import slider3 from '@/assets/3.png';
-import TermiteManagementimage from '@/assets/Termite-Management-image.png';
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -34,193 +30,257 @@ const Index = () => {
     employees: 0,
     projects: 0,
     clients: 0,
-    awards: 0
+    awards: 0,
   });
 
-  const slides = [
-    // {
-    //   image: slider1,
-    //   title: "Professional Pest Control Solutions",
-    //   subtitle: "Protecting your home and business with expert pest management services",
-    //   cta: "Get Free Quote"
-    // },
+  const heroSlides = [
     {
       image: slider2,
-      // title: "Advanced Fumigation Services", 
-      // subtitle: "Industrial-grade fumigation for warehouses, vessels, and containers",
-      cta: "Learn More"
+      alt: 'Advanced Fumigation Services',
+      cta: 'Learn More',
     },
     {
       image: slider3,
-      // title: "Eco-Friendly Pest Solutions",
-      // subtitle: "Safe and effective treatments that protect your family and environment",
-      cta: "View Services"
-    }
+      alt: 'Eco-Friendly Pest Solutions',
+      cta: 'View Services',
+    },
   ];
 
   const stats = [
-    { icon: Users, value: 59, label: "Expert Employees", suffix: "" },
-    { icon: Target, value: 15000, label: "Projects Completed", suffix: "+" },
-    { icon: CheckCircle, value: 14700, label: "Satisfied Clients", suffix: "+" },
-    { icon: Award, value: 50, label: "Awards Won", suffix: "" }
+    { icon: Users, value: 59, label: 'Expert Employees', suffix: '' },
+    { icon: Target, value: 15000, label: 'Projects Completed', suffix: '+' },
+    { icon: CheckCircle, value: 14700, label: 'Satisfied Clients', suffix: '+' },
+    { icon: Award, value: 50, label: 'Awards Won', suffix: '' },
   ];
 
   const services = [
-    { 
-      icon: Bug, 
-      title: "Termite Management", 
-      description: "Complete termite elimination and prevention",
-      path: "/services/termite-management"
+    {
+      icon: Bug,
+      title: 'Termite Management',
+      description: 'Complete termite elimination and prevention',
+      path: '/services/termite-management',
     },
-    { 
-      icon: Target, 
-      title: "Rodent Control", 
-      description: "Safe and effective rodent removal",
-      path: "/services/rodent-management"
+    {
+      icon: Target,
+      title: 'Rodent Control',
+      description: 'Safe and effective rodent removal',
+      path: '/services/rodent-management',
     },
-    { 
-      icon: Shield, 
-      title: "Cockroach Control", 
-      description: "Professional cockroach elimination",
-      path: "/services/cockroach-management"
+    {
+      icon: Shield,
+      title: 'Cockroach Control',
+      description: 'Professional cockroach elimination',
+      path: '/services/cockroach-management',
     },
-    { 
-      icon: Zap, 
-      title: "Flying Insect Control", 
-      description: "Comprehensive flying insect management",
-      path: "/services/flying-insect-management"
+    {
+      icon: Zap,
+      title: 'Flying Insect Control',
+      description: 'Comprehensive flying insect management',
+      path: '/services/flying-insect-management',
     },
-    { 
-      icon: Home, 
-      title: "Mosquito Control", 
-      description: "Effective mosquito prevention and control",
-      path: "/services/mosquito-management"
+    {
+      icon: Home,
+      title: 'Mosquito Control',
+      description: 'Effective mosquito prevention and control',
+      path: '/services/mosquito-management',
     },
-    { 
-      icon: Building, 
-      title: "Warehouse Fumigation", 
-      description: "Industrial fumigation services",
-      path: "/services/fumigation-warehouse"
-    }
+    {
+      icon: Building,
+      title: 'Warehouse Fumigation',
+      description: 'Industrial fumigation services',
+      path: '/services/fumigation-warehouse',
+    },
   ];
 
   const testimonials = [
     {
-      name: "Rajesh Kumar",
-      company: "ABC Industries",
+      name: 'Rajesh Kumar',
+      company: 'ABC Industries',
       rating: 5,
-      text: "Excellent service! They completely eliminated our termite problem. Highly professional team."
+      text: 'Excellent service! They completely eliminated our termite problem. Highly professional team.',
     },
     {
-      name: "Priya Sharma",
-      company: "Homeowner",
+      name: 'Priya Sharma',
+      company: 'Homeowner',
       rating: 5,
-      text: "Quick response and effective treatment. Our home is now pest-free. Recommended!"
+      text: 'Quick response and effective treatment. Our home is now pest-free. Recommended!',
     },
     {
-      name: "Anil Reddy",
-      company: "XYZ Warehouse",
+      name: 'Anil Reddy',
+      company: 'XYZ Warehouse',
       rating: 5,
-      text: "Professional fumigation service for our warehouse. Great job and reasonable pricing."
-    }
+      text: 'Professional fumigation service for our warehouse. Great job and reasonable pricing.',
+    },
   ];
 
-  // Auto-slide functionality
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [slides.length]);
+  // Hero slider logic with swipe and autoplay reset
+  const touchStartX = useRef<number | null>(null);
+  const touchDeltaX = useRef<number>(0);
+  const autoPlayRef = useRef<number | null>(null);
 
-  // Animate stats on load
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((s) => (s === heroSlides.length - 1 ? 0 : s + 1));
+  }, [heroSlides.length]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((s) => (s === 0 ? heroSlides.length - 1 : s - 1));
+  }, [heroSlides.length]);
+
   useEffect(() => {
-    const timers = stats.map((stat, index) => {
-      return setTimeout(() => {
+    window.clearInterval(autoPlayRef.current!);
+    autoPlayRef.current = window.setInterval(() => {
+      nextSlide();
+    }, 5000);
+    return () => {
+      window.clearInterval(autoPlayRef.current!);
+    };
+  }, [nextSlide]);
+
+  const resetAuto = () => {
+    window.clearInterval(autoPlayRef.current!);
+    autoPlayRef.current = window.setInterval(() => {
+      nextSlide();
+    }, 5000);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchDeltaX.current = 0;
+  };
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const currentX = e.touches[0].clientX;
+    touchDeltaX.current = currentX - touchStartX.current;
+  };
+  const handleTouchEnd = () => {
+    const threshold = 50;
+    if (touchDeltaX.current > threshold) {
+      prevSlide();
+      resetAuto();
+    } else if (touchDeltaX.current < -threshold) {
+      nextSlide();
+      resetAuto();
+    }
+    touchStartX.current = null;
+    touchDeltaX.current = 0;
+  };
+
+  // Animate stats on mount
+  useEffect(() => {
+    const timers: number[] = [];
+    stats.forEach((stat, index) => {
+      const delay = index * 200;
+      const t = window.setTimeout(() => {
         const increment = stat.value / 50;
         let current = 0;
-        const timer = setInterval(() => {
+        const inner = window.setInterval(() => {
           current += increment;
           if (current >= stat.value) {
             current = stat.value;
-            clearInterval(timer);
+            window.clearInterval(inner);
           }
-          setAnimatedStats(prev => ({
+          setAnimatedStats((prev) => ({
             ...prev,
-            [index === 0 ? 'employees' : index === 1 ? 'projects' : index === 2 ? 'clients' : 'awards']: Math.floor(current)
+            [index === 0
+              ? 'employees'
+              : index === 1
+              ? 'projects'
+              : index === 2
+              ? 'clients'
+              : 'awards']: Math.floor(current),
           }));
         }, 20);
-      }, index * 200);
+      }, delay);
+      timers.push(t);
     });
-
-    return () => timers.forEach(clearTimeout);
+    return () => timers.forEach(window.clearTimeout);
   }, []);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
+  // Services mobile slider (manual only)
+  const serviceImages = [
+    'https://i.pinimg.com/1200x/fc/5f/9b/fc5f9bb0d0c732ddee25c15bee674116.jpg', // termite
+    'https://i.pinimg.com/736x/d2/48/60/d24860ac12343fd83eca5b4c1c4ca46d.jpg', // rodent
+    'https://i.pinimg.com/1200x/71/b2/89/71b289f8a80856f886bb5cf3c703d21b.jpg', // cockroach
+    'https://i.pinimg.com/736x/c7/8b/e4/c78be4da6932458412b653793825172f.jpg', // flying insects
+    'https://i.pinimg.com/1200x/43/2e/d5/432ed5c9e0a613e70b6101dda6c8d3cd.jpg', // mosquito
+    'https://i.pinimg.com/1200x/ae/b4/48/aeb4481071a33b47b1b4ac40d73d1fa7.jpg', // warehouse
+  ];
+  const [serviceSlide, setServiceSlide] = useState(0);
+  const totalServices = services.length;
+  const prevService = () => setServiceSlide((s) => (s === 0 ? totalServices - 1 : s - 1));
+  const nextService = () => setServiceSlide((s) => (s === totalServices - 1 ? 0 : s + 1));
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
       {/* Hero Section with Slider */}
-      <section className="relative h-[600px] overflow-hidden">
-        
-        {slides.map((slide, index) => (
+      <section
+        className="relative h-[300px] sm:h-[500px] md:h-[600px] overflow-hidden select-none"
+        aria-roledescription="carousel"
+        aria-label="Hero slider"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {heroSlides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            aria-hidden={index !== currentSlide}
+            className={`absolute inset-0 transition-opacity duration-700 ease-in-out flex items-center justify-center ${
+              index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
             }`}
             style={{
               backgroundImage: `url(${slide.image})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center'
+              backgroundPosition: 'center',
             }}
-          />
-        ))}
-        
-        {/* <div className="relative z-20 container mx-auto px-4 h-full flex items-center">
-          <div className="max-w-3xl text-pest-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              {slides[currentSlide].title}
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 opacity-90">
-              {slides[currentSlide].subtitle}
-            </p>
-            <Button size="lg" className="bg-pest-white text-pest-red hover:bg-pest-white/90">
-              {slides[currentSlide].cta}
-            </Button>
+          >
+            <div className="absolute inset-0 bg-black/25" aria-hidden="true" />
+            <img
+              src={slide.image}
+              alt={slide.alt || `Slide ${index + 1}`}
+              className="hidden"
+              aria-hidden="true"
+              loading="lazy"
+            />
           </div>
-        </div> */}
+        ))}
 
-        {/* Slider Controls */}
+        {/* Controls */}
         <button
-          onClick={prevSlide}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 z-30 bg-pest-white/20 hover:bg-pest-white/30 rounded-full p-2 transition-colors"
+          onClick={() => {
+            prevSlide();
+            resetAuto();
+          }}
+          aria-label="Previous slide"
+          className="absolute left-2 top-1/2 transform -translate-y-1/2 z-30 bg-black/30 hover:bg-black/40 rounded-full p-3 sm:p-2 transition-colors focus:outline-none"
         >
-          <ChevronLeft className="h-6 w-6 text-pest-white" />
+          <ChevronLeft className="h-6 w-6 text-white" />
         </button>
         <button
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 z-30 bg-pest-white/20 hover:bg-pest-white/30 rounded-full p-2 transition-colors"
+          onClick={() => {
+            nextSlide();
+            resetAuto();
+          }}
+          aria-label="Next slide"
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 z-30 bg-black/30 hover:bg-black/40 rounded-full p-3 sm:p-2 transition-colors focus:outline-none"
         >
-          <ChevronRight className="h-6 w-6 text-pest-white" />
+          <ChevronRight className="h-6 w-6 text-white" />
         </button>
 
-        {/* Slide Indicators */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex space-x-2">
-          {slides.map((_, index) => (
+        {/* Indicators */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-30 flex gap-2">
+          {heroSlides.map((_, idx) => (
             <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentSlide ? 'bg-pest-white' : 'bg-pest-white/50'
+              key={idx}
+              onClick={() => {
+                setCurrentSlide(idx);
+                resetAuto();
+              }}
+              aria-label={`Go to slide ${idx + 1}`}
+              aria-current={idx === currentSlide}
+              className={`w-3 h-3 rounded-full transition-all duration-200 ring-1 ring-white/60 focus:outline-none ${
+                idx === currentSlide ? 'scale-125 bg-white' : 'bg-white/50 hover:bg-white'
               }`}
             />
           ))}
@@ -284,138 +344,130 @@ const Index = () => {
 
       {/* Services Section */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Our Services</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Comprehensive pest control solutions tailored to your specific needs
-            </p>
-          </div>
-          
-          {/* Desktop View */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              const serviceImages = [
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Our Services</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Comprehensive pest control solutions tailored to your specific needs
+          </p>
+        </div>
 
-                "https://i.pinimg.com/1200x/fc/5f/9b/fc5f9bb0d0c732ddee25c15bee674116.jpg", // termite
-                "https://i.pinimg.com/736x/d2/48/60/d24860ac12343fd83eca5b4c1c4ca46d.jpg", // rodent  
-                "https://i.pinimg.com/1200x/71/b2/89/71b289f8a80856f886bb5cf3c703d21b.jpg", // cockroach
-                "https://i.pinimg.com/736x/c7/8b/e4/c78be4da6932458412b653793825172f.jpg", // flying insects
-                "https://i.pinimg.com/1200x/43/2e/d5/432ed5c9e0a613e70b6101dda6c8d3cd.jpg", // mosquito
-                "https://i.pinimg.com/1200x/ae/b4/48/aeb4481071a33b47b1b4ac40d73d1fa7.jpg"  // warehouse
-
-                
-              ];
-              return (
-                <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg">
-                  <CardContent className="p-8">
-                    <div className="relative mb-6">
-                      <img 
-                        src={serviceImages[index]}
-                        alt={service.title}
-                        className="w-full h-48 object-cover rounded-lg"
-                      />
-                    </div>
-                    <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Icon className="h-8 w-8 text-primary" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-foreground mb-4 text-center">{service.title}</h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed text-center mb-6">{service.description}</p>
-                    <div className="text-center">
-                      <Button asChild variant="outline">
-                        <Link to={service.path}>Learn More</Link>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-
-          {/* Mobile Slideshow */}
-          <div className="md:hidden">
-            <div className="relative">
-              <div className="overflow-hidden rounded-xl">
-                <div 
-                  className="flex transition-transform duration-300 ease-in-out"
-                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-                >
-                  {services.map((service, index) => {
-                    const Icon = service.icon;
-                    const serviceImages = [
-                      "https://i.pinimg.com/1200x/fc/5f/9b/fc5f9bb0d0c732ddee25c15bee674116.jpg", // termite
-                      "https://i.pinimg.com/736x/d2/48/60/d24860ac12343fd83eca5b4c1c4ca46d.jpg", // rodent  
-                      "https://i.pinimg.com/1200x/71/b2/89/71b289f8a80856f886bb5cf3c703d21b.jpg", // cockroach
-                      "https://i.pinimg.com/736x/c7/8b/e4/c78be4da6932458412b653793825172f.jpg", // flying insects
-                      "https://i.pinimg.com/1200x/43/2e/d5/432ed5c9e0a613e70b6101dda6c8d3cd.jpg", // mosquito
-                      "https://i.pinimg.com/1200x/ae/b4/48/aeb4481071a33b47b1b4ac40d73d1fa7.jpg"  // warehouse
-                    ];
-                    return (
-                      <div key={index} className="w-full flex-shrink-0 px-4">
-                        <Card className="shadow-lg border-0">
-                          <CardContent className="p-6">
-                            <div className="relative mb-4">
-                              <img 
-                                src={serviceImages[index]}
-                                alt={service.title}
-                                className="w-full h-40 object-cover rounded-lg"
-                              />
-                            </div>
-                            <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
-                              <Icon className="h-6 w-6 text-primary" />
-                            </div>
-                            <h3 className="text-xl font-bold text-foreground mb-3 text-center">{service.title}</h3>
-                            <p className="text-muted-foreground leading-relaxed text-center mb-4">{service.description}</p>
-                            <div className="text-center">
-                              <Button asChild variant="outline" size="sm">
-                                <Link to={service.path}>Learn More</Link>
-                              </Button>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-              
-              {/* Navigation Arrows */}
-              <button
-                onClick={prevSlide}
-                className="absolute left-2 top-1/2 -translate-y-1/2 bg-primary text-primary-foreground rounded-full p-2 shadow-lg hover:bg-primary/90 transition-colors z-10"
+        {/* Desktop View */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <Card
+                key={index}
+                className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg"
               >
-                <ChevronLeft className="h-5 w-5" />
-              </button>
-              <button
-                onClick={nextSlide}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-primary-foreground rounded-full p-2 shadow-lg hover:bg-primary/90 transition-colors z-10"
+                <CardContent className="p-8">
+                  <div className="relative mb-6">
+                    <img
+                      src={serviceImages[index]}
+                      alt={service.title}
+                      className="w-full h-48 object-cover rounded-lg"
+                    />
+                  </div>
+                  <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground mb-4 text-center">{service.title}</h3>
+                  <p className="text-muted-foreground text-lg leading-relaxed text-center mb-6">
+                    {service.description}
+                  </p>
+                  <div className="text-center">
+                    <Button asChild variant="outline">
+                      <Link to={service.path}>Learn More</Link>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+
+        {/* Mobile Slideshow */}
+        <div className="md:hidden">
+          <div className="relative">
+            <div className="overflow-hidden rounded-xl">
+              <div
+                className="flex transition-transform duration-300 ease-in-out"
+                style={{ transform: `translateX(-${serviceSlide * 100}%)` }}
               >
-                <ChevronRight className="h-5 w-5" />
-              </button>
-              
-              {/* Dots Indicator */}
-              <div className="flex justify-center mt-6 space-x-2">
-                {services.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-colors ${
-                      index === currentSlide ? 'bg-primary' : 'bg-muted-foreground/30'
-                    }`}
-                  />
-                ))}
+                {services.map((service, index) => {
+                  const Icon = service.icon;
+                  return (
+                    <div key={index} className="w-full flex-shrink-0 px-4">
+                      <Card className="shadow-lg border-0">
+                        <CardContent className="p-6">
+                          <div className="relative mb-4">
+                            <img
+                              src={serviceImages[index]}
+                              alt={service.title}
+                              className="w-full h-40 object-cover rounded-lg"
+                            />
+                          </div>
+                          <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <Icon className="h-6 w-6 text-primary" />
+                          </div>
+                          <h3 className="text-xl font-bold text-foreground mb-3 text-center">{service.title}</h3>
+                          <p className="text-muted-foreground leading-relaxed text-center mb-4">
+                            {service.description}
+                          </p>
+                          <div className="text-center">
+                            <Button asChild variant="outline" size="sm">
+                              <Link to={service.path}>Learn More</Link>
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  );
+                })}
               </div>
             </div>
-          </div>
 
-          <div className="text-center mt-12">
-            <Button asChild size="lg">
-              <Link to="/services">View All Services</Link>
-            </Button>
+            {/* Navigation Arrows */}
+            <button
+  onClick={prevService}
+  className="absolute left-2 top-1/2 -translate-y-1/2 bg-primary text-primary-foreground rounded-full p-2 shadow-lg hover:bg-primary/90 transition-colors z-10"
+  aria-label="Previous service"
+>
+  <ChevronLeft className="h-5 w-5" />
+</button>
+<button
+  onClick={nextService}
+  className="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-primary-foreground rounded-full p-2 shadow-lg hover:bg-primary/90 transition-colors z-10"
+  aria-label="Next service"
+>
+  <ChevronRight className="h-5 w-5" />
+</button>
+
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center mt-6 space-x-2">
+              {services.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setServiceSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-colors ${
+                    index === serviceSlide ? 'bg-primary' : 'bg-muted-foreground/30'
+                  }`}
+                  aria-label={`Go to service ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </section>
+
+        <div className="text-center mt-12">
+          <Button asChild size="lg">
+            <Link to="/services">View All Services</Link>
+          </Button>
+        </div>
+      </div>
+    </section>
 
       {/* Why Choose Us Section */}
       <section className="py-20 bg-pest-gray">
