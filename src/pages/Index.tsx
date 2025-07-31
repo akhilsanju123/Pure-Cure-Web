@@ -295,20 +295,20 @@ const Index = () => {
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const Icon = service.icon;
-              const imageUrls = [
-                "1558618666-c60fa7d28c8c", // termite
-                "1506905925-eb800648ba68", // rodent  
-                "1633332290-1d5d8e8308e7", // cockroach
-                "1558168848-a8c1d8f0f5cb", // flying insects
-                "1571019613-9d66c1e6d832", // mosquito
-                "1566306885-56ac4b5c5866"  // warehouse
+              const serviceImages = [
+                "/lovable-uploads/2ae3412f-b39d-4ec3-9f9a-dffa0f700d22.png", // termite
+                "/lovable-uploads/ec7e0923-33fa-4bb3-88ee-11cfc243b84b.png", // rodent  
+                "/lovable-uploads/da9f3606-e707-4512-9dd1-454317044e8e.png", // cockroach
+                "/lovable-uploads/c1812c8d-04cf-4d38-a837-2ca80b0a100a.png", // flying insects
+                "/lovable-uploads/7f98a771-4945-4c17-9168-4db7886dbca7.png", // mosquito
+                "/lovable-uploads/4214f340-a3e3-4fdf-bb9f-cb6c9f67e010.png"  // warehouse
               ];
               return (
                 <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg">
                   <CardContent className="p-8">
                     <div className="relative mb-6">
                       <img 
-                        src={`https://images.unsplash.com/photo-${imageUrls[index]}?w=400&h=250&fit=crop&auto=format`}
+                        src={serviceImages[index]}
                         alt={service.title}
                         className="w-full h-48 object-cover rounded-lg"
                       />
@@ -339,13 +339,13 @@ const Index = () => {
                 >
                   {services.map((service, index) => {
                     const Icon = service.icon;
-                    const imageUrls = [
-                      "1558618666-c60fa7d28c8c", // termite
-                      "1506905925-eb800648ba68", // rodent  
-                      "1633332290-1d5d8e8308e7", // cockroach
-                      "1558168848-a8c1d8f0f5cb", // flying insects
-                      "1571019613-9d66c1e6d832", // mosquito
-                      "1566306885-56ac4b5c5866"  // warehouse
+                    const serviceImages = [
+                      "/lovable-uploads/2ae3412f-b39d-4ec3-9f9a-dffa0f700d22.png", // termite
+                      "/lovable-uploads/ec7e0923-33fa-4bb3-88ee-11cfc243b84b.png", // rodent  
+                      "/lovable-uploads/da9f3606-e707-4512-9dd1-454317044e8e.png", // cockroach
+                      "/lovable-uploads/c1812c8d-04cf-4d38-a837-2ca80b0a100a.png", // flying insects
+                      "/lovable-uploads/7f98a771-4945-4c17-9168-4db7886dbca7.png", // mosquito
+                      "/lovable-uploads/4214f340-a3e3-4fdf-bb9f-cb6c9f67e010.png"  // warehouse
                     ];
                     return (
                       <div key={index} className="w-full flex-shrink-0 px-4">
@@ -353,7 +353,7 @@ const Index = () => {
                           <CardContent className="p-6">
                             <div className="relative mb-4">
                               <img 
-                                src={`https://images.unsplash.com/photo-${imageUrls[index]}?w=350&h=200&fit=crop&auto=format`}
+                                src={serviceImages[index]}
                                 alt={service.title}
                                 className="w-full h-40 object-cover rounded-lg"
                               />
