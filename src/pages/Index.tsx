@@ -23,9 +23,10 @@ import {
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
-import slider1 from '@/assets/slider-1.jpg';
-import slider2 from '@/assets/slider-2.jpg';
-import slider3 from '@/assets/slider-3.jpg';
+// import slider1 from '@/assets/slider-1.jpg';
+import slider2 from '@/assets/2.png';
+import slider3 from '@/assets/3.png';
+import TermiteManagementimage from '@/assets/Termite-Management-image.png';
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -37,22 +38,22 @@ const Index = () => {
   });
 
   const slides = [
-    {
-      image: slider1,
-      title: "Professional Pest Control Solutions",
-      subtitle: "Protecting your home and business with expert pest management services",
-      cta: "Get Free Quote"
-    },
+    // {
+    //   image: slider1,
+    //   title: "Professional Pest Control Solutions",
+    //   subtitle: "Protecting your home and business with expert pest management services",
+    //   cta: "Get Free Quote"
+    // },
     {
       image: slider2,
-      title: "Advanced Fumigation Services", 
-      subtitle: "Industrial-grade fumigation for warehouses, vessels, and containers",
+      // title: "Advanced Fumigation Services", 
+      // subtitle: "Industrial-grade fumigation for warehouses, vessels, and containers",
       cta: "Learn More"
     },
     {
       image: slider3,
-      title: "Eco-Friendly Pest Solutions",
-      subtitle: "Safe and effective treatments that protect your family and environment",
+      // title: "Eco-Friendly Pest Solutions",
+      // subtitle: "Safe and effective treatments that protect your family and environment",
       cta: "View Services"
     }
   ];
@@ -184,7 +185,7 @@ const Index = () => {
           />
         ))}
         
-        <div className="relative z-20 container mx-auto px-4 h-full flex items-center">
+        {/* <div className="relative z-20 container mx-auto px-4 h-full flex items-center">
           <div className="max-w-3xl text-pest-white">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
               {slides[currentSlide].title}
@@ -196,7 +197,7 @@ const Index = () => {
               {slides[currentSlide].cta}
             </Button>
           </div>
-        </div>
+        </div> */}
 
         {/* Slider Controls */}
         <button
@@ -295,20 +296,20 @@ const Index = () => {
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const Icon = service.icon;
-              const imageUrls = [
-                "1558618666-c60fa7d28c8c", // termite
-                "1506905925-eb800648ba68", // rodent  
-                "1633332290-1d5d8e8308e7", // cockroach
-                "1558168848-a8c1d8f0f5cb", // flying insects
-                "1571019613-9d66c1e6d832", // mosquito
-                "1566306885-56ac4b5c5866"  // warehouse
+              const serviceImages = [
+                "src/assets/Termite-Management-image.png", // termite
+                "src/assets/Rodent-Control.png", // rodent  
+                "src/assets/Cockroach-Control.png", // cockroach
+                "src/assets/Flying-Insect-Control.png", // flying insects
+                "src/assets/Mosquito-Control.png", // mosquito
+                "src/assets/Warehouse-Fumigation.png"  // warehouse
               ];
               return (
                 <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg">
                   <CardContent className="p-8">
                     <div className="relative mb-6">
                       <img 
-                        src={`https://images.unsplash.com/photo-${imageUrls[index]}?w=400&h=250&fit=crop&auto=format`}
+                        src={serviceImages[index]}
                         alt={service.title}
                         className="w-full h-48 object-cover rounded-lg"
                       />
@@ -339,13 +340,13 @@ const Index = () => {
                 >
                   {services.map((service, index) => {
                     const Icon = service.icon;
-                    const imageUrls = [
-                      "1558618666-c60fa7d28c8c", // termite
-                      "1506905925-eb800648ba68", // rodent  
-                      "1633332290-1d5d8e8308e7", // cockroach
-                      "1558168848-a8c1d8f0f5cb", // flying insects
-                      "1571019613-9d66c1e6d832", // mosquito
-                      "1566306885-56ac4b5c5866"  // warehouse
+                    const serviceImages = [
+                      "src/assets/Termite-Management-image.png", // termite
+                      "src/assets/Rodent-Control.png", // rodent  
+                      "src/assets/Cockroach-Control.png", // cockroach
+                      "src/assets/Flying-Insect-Control.png", // flying insects
+                      "src/assets/Mosquito-Control.png", // mosquito
+                      "src/assets/Warehouse-Fumigation.png"  // warehouse
                     ];
                     return (
                       <div key={index} className="w-full flex-shrink-0 px-4">
@@ -353,7 +354,7 @@ const Index = () => {
                           <CardContent className="p-6">
                             <div className="relative mb-4">
                               <img 
-                                src={`https://images.unsplash.com/photo-${imageUrls[index]}?w=350&h=200&fit=crop&auto=format`}
+                                src={serviceImages[index]}
                                 alt={service.title}
                                 className="w-full h-40 object-cover rounded-lg"
                               />
@@ -553,3 +554,4 @@ const Index = () => {
 };
 
 export default Index;
+

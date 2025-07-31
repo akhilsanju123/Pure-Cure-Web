@@ -26,7 +26,7 @@ const LizardManagement = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <img 
-                src="https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800&h=400&fit=crop&auto=format"
+                src="https://i.pinimg.com/736x/67/10/ea/6710ea1e224d161f0cc3a117b4745509.jpg"
                 alt="Lizard Management Service"
                 className="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg"
               />

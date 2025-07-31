@@ -26,7 +26,7 @@ const CockroachManagement = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <img 
-                src="https://images.unsplash.com/photo-1633332290-1d5d8e8308e7?w=800&h=400&fit=crop&auto=format"
+                src="https://i.pinimg.com/1200x/71/b2/89/71b289f8a80856f886bb5cf3c703d21b.jpg"
                 alt="Cockroach Management Service"
                 className="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg"
               />

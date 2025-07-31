@@ -238,7 +238,7 @@ const Contact = () => {
                     <div className="text-center">
                       <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
                       <p className="text-lg font-semibold text-pest-black">Our Location</p>
-                      <p className="text-muted-foreground">Kavali, Andhra Pradesh</p>
+                      <p className="text-muted-foreground"># 50-50-38/5, GROUND FLOOR, GURUDWARAJNBALAYYA SASTRY LAYOUT, VISAKHAPATNAM</p>
                     </div>
                   </div>
                 </CardContent>

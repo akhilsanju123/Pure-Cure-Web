@@ -26,7 +26,7 @@ const FlyingInsectManagement = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <img 
-                src="https://images.unsplash.com/photo-1558168848-a8c1d8f0f5cb?w=800&h=400&fit=crop&auto=format"
+                src="https://i.pinimg.com/1200x/c8/38/73/c8387326090c6d2e737c3a76602e772c.jpg"
                 alt="Flying Insect Management Service"
                 className="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg"
               />

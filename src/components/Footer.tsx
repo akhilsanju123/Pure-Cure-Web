@@ -70,7 +70,7 @@ const Footer = () => {
             <div className="space-y-3 text-sm">
               <div className="flex items-center space-x-2">
                 <MapPin className="h-4 w-4 text-primary" />
-                <span>Kavali, Andhra Pradesh</span>
+                <span>50-50-38/5, GROUND FLOOR, GURUDWARAJNBALAYYA SASTRY LAYOUT, VISAKHAPATNAM</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-primary" />

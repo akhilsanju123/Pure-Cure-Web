@@ -28,7 +28,7 @@ const RodentManagement = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <img 
-                src="https://images.unsplash.com/photo-1506905925-eb800648ba68?w=800&h=400&fit=crop&auto=format"
+                src="https://i.pinimg.com/736x/eb/ac/08/ebac08ddcf3655b3c543f45d3fc5acea.jpg"
                 alt="Rodent Management Service"
                 className="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg"
               />

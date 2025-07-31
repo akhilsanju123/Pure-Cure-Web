@@ -28,7 +28,7 @@ const TermiteManagement = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <img 
-                src="https://images.unsplash.com/photo-1558618666-c60fa7d28c8c?w=800&h=400&fit=crop&auto=format"
+                src="https://i.pinimg.com/1200x/ec/82/e3/ec82e377b10a14a5591af3b11d5c9955.jpg"
                 alt="Termite Management Service"
                 className="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg"
               />

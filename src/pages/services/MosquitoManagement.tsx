@@ -26,7 +26,7 @@ const MosquitoManagement = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <img 
-                src="https://images.unsplash.com/photo-1571019613-9d66c1e6d832?w=800&h=400&fit=crop&auto=format"
+                src="https://i.pinimg.com/1200x/90/a0/b1/90a0b1da318d81a008f57ab152e40bc6.jpg"
                 alt="Mosquito Management Service"
                 className="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg"
               />
