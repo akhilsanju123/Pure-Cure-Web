@@ -84,14 +84,6 @@ const Header = () => {
               </DropdownMenu>
 
               <Link 
-                to="/testimonials" 
-                className={`font-medium transition-colors hover:text-primary ${
-                  isActive('/testimonials') ? 'text-primary' : 'text-foreground'
-                }`}
-              >
-                Testimonials
-              </Link>
-              <Link 
                 to="/contact" 
                 className={`font-medium transition-colors hover:text-primary ${
                   isActive('/contact') ? 'text-primary' : 'text-foreground'
@@ -148,7 +140,7 @@ const Header = () => {
                     </Link>
                   ))}
                 </div>
-                <Link to="/testimonials" className="font-medium hover:text-primary">Testimonials</Link>
+                
                 <Link to="/contact" className="font-medium hover:text-primary">Contact</Link>
                 <div className="flex space-x-4 pt-4">
                   <Button asChild size="sm">
