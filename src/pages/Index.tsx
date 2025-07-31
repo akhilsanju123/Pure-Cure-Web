@@ -297,12 +297,15 @@ const Index = () => {
             {services.map((service, index) => {
               const Icon = service.icon;
               const serviceImages = [
+
                 "src/assets/Termite-Management-image.png", // termite
                 "src/assets/Rodent-Control.png", // rodent  
                 "src/assets/Cockroach-Control.png", // cockroach
                 "src/assets/Flying-Insect-Control.png", // flying insects
                 "src/assets/Mosquito-Control.png", // mosquito
                 "src/assets/Warehouse-Fumigation.png"  // warehouse
+
+                
               ];
               return (
                 <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg">
