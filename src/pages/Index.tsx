@@ -298,12 +298,12 @@ const Index = () => {
               const Icon = service.icon;
               const serviceImages = [
 
-                "src/assets/Termite-Management-image.png", // termite
-                "src/assets/Rodent-Control.png", // rodent  
-                "src/assets/Cockroach-Control.png", // cockroach
-                "src/assets/Flying-Insect-Control.png", // flying insects
-                "src/assets/Mosquito-Control.png", // mosquito
-                "src/assets/Warehouse-Fumigation.png"  // warehouse
+                "https://i.pinimg.com/1200x/fc/5f/9b/fc5f9bb0d0c732ddee25c15bee674116.jpg", // termite
+                "https://i.pinimg.com/736x/d2/48/60/d24860ac12343fd83eca5b4c1c4ca46d.jpg", // rodent  
+                "https://i.pinimg.com/1200x/71/b2/89/71b289f8a80856f886bb5cf3c703d21b.jpg", // cockroach
+                "https://i.pinimg.com/736x/c7/8b/e4/c78be4da6932458412b653793825172f.jpg", // flying insects
+                "https://i.pinimg.com/1200x/43/2e/d5/432ed5c9e0a613e70b6101dda6c8d3cd.jpg", // mosquito
+                "https://i.pinimg.com/1200x/ae/b4/48/aeb4481071a33b47b1b4ac40d73d1fa7.jpg"  // warehouse
 
                 
               ];
@@ -344,12 +344,12 @@ const Index = () => {
                   {services.map((service, index) => {
                     const Icon = service.icon;
                     const serviceImages = [
-                      "src/assets/Termite-Management-image.png", // termite
-                      "src/assets/Rodent-Control.png", // rodent  
-                      "src/assets/Cockroach-Control.png", // cockroach
-                      "src/assets/Flying-Insect-Control.png", // flying insects
-                      "src/assets/Mosquito-Control.png", // mosquito
-                      "src/assets/Warehouse-Fumigation.png"  // warehouse
+                      "https://i.pinimg.com/1200x/fc/5f/9b/fc5f9bb0d0c732ddee25c15bee674116.jpg", // termite
+                      "https://i.pinimg.com/736x/d2/48/60/d24860ac12343fd83eca5b4c1c4ca46d.jpg", // rodent  
+                      "https://i.pinimg.com/1200x/71/b2/89/71b289f8a80856f886bb5cf3c703d21b.jpg", // cockroach
+                      "https://i.pinimg.com/736x/c7/8b/e4/c78be4da6932458412b653793825172f.jpg", // flying insects
+                      "https://i.pinimg.com/1200x/43/2e/d5/432ed5c9e0a613e70b6101dda6c8d3cd.jpg", // mosquito
+                      "https://i.pinimg.com/1200x/ae/b4/48/aeb4481071a33b47b1b4ac40d73d1fa7.jpg"  // warehouse
                     ];
                     return (
                       <div key={index} className="w-full flex-shrink-0 px-4">

@@ -37,7 +37,7 @@ const Header = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
               <img 
-                src="/lovable-uploads/ce25489f-b51e-4332-aba2-878e4a2cd8cd.png" 
+                src="/lovable-uploads/d200ea04-081b-4dce-bf8a-e281c0d317cf.png" 
                 alt="Pest Cure Solutions & Fumigation" 
                 className="h-12 w-auto"
               />
