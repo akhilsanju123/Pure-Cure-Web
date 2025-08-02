@@ -40,11 +40,11 @@ const Index = () => {
       alt: 'Advanced Fumigation Services',
       cta: 'Learn More',
     },
-    {
-      image: slider3,
-      alt: 'Eco-Friendly Pest Solutions',
-      cta: 'View Services',
-    },
+    // {
+    //   image: slider3,
+    //   alt: 'Eco-Friendly Pest Solutions',
+    //   cta: 'View Services',
+    // },
   ];
 
   const stats = [
@@ -166,6 +166,15 @@ const Index = () => {
     touchDeltaX.current = 0;
   };
 
+  // Auto-slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setServiceSlide((prev) => (prev + 1) % services.length);
+    }, 5000);
+
+    return () => clearInterval(interval); // Clean up
+  }, []);
+
   // Animate stats on mount
   useEffect(() => {
     const timers: number[] = [];
@@ -236,19 +245,19 @@ const Index = () => {
               backgroundPosition: 'center',
             }}
           >
-            <div className="absolute inset-0 bg-black/25" aria-hidden="true" />
-            <img
+            {/* <div className="absolute inset-0 bg-black/25" aria-hidden="true" /> */}
+            {/* <img
               src={slide.image}
               alt={slide.alt || `Slide ${index + 1}`}
               className="hidden"
               aria-hidden="true"
               loading="lazy"
-            />
+            /> */}
           </div>
         ))}
 
         {/* Controls */}
-        <button
+        {/* <button
           onClick={() => {
             prevSlide();
             resetAuto();
@@ -267,10 +276,10 @@ const Index = () => {
           className="absolute right-2 top-1/2 transform -translate-y-1/2 z-30 bg-black/30 hover:bg-black/40 rounded-full p-3 sm:p-2 transition-colors focus:outline-none"
         >
           <ChevronRight className="h-6 w-6 text-white" />
-        </button>
+        </button> */}
 
         {/* Indicators */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-30 flex gap-2">
+        {/* <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-30 flex gap-2">
           {heroSlides.map((_, idx) => (
             <button
               key={idx}
@@ -285,7 +294,7 @@ const Index = () => {
               }`}
             />
           ))}
-        </div>
+        </div> */}
 
         
       </section>
@@ -414,6 +423,62 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+
+    <section className="py-20 bg-background">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-12">
+      <h2 className="text-4xl md:text-5xl font-bold text-foreground">Our Services</h2>
+    </div>
+
+    <div className="relative max-w-xl mx-auto">
+      <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 text-center">
+        <img
+          src={serviceImages[serviceSlide]}
+          alt={services[serviceSlide].title}
+          className="rounded-xl w-full h-64 object-cover mb-6"
+        />
+        <h3 className="text-2xl font-bold text-red-500 mb-2">{services[serviceSlide].title}</h3>
+        <p className="text-muted-foreground text-base">{services[serviceSlide].description}</p>
+      </div>
+
+      {/* Left Arrow */}
+      <button
+        onClick={prevService}
+        className="absolute left-0 top-1/2 -translate-y-1/2 bg-red-500 text-white p-3 rounded-full shadow-md hover:bg-red-700 transition-colors"
+        aria-label="Previous service"
+      >
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+
+      {/* Right Arrow */}
+      <button
+        onClick={nextService}
+        className="absolute right-0 top-1/2 -translate-y-1/2 bg-red-500 text-white p-3 rounded-full shadow-md hover:bg-red-700 transition-colors"
+        aria-label="Next service"
+      >
+        <ChevronRight className="w-5 h-5" />
+      </button>
+    </div>
+
+    {/* Dot Indicators */}
+    <div className="flex justify-center mt-6 space-x-2">
+      {services.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => setServiceSlide(index)}
+          className={`w-3 h-3 rounded-full transition-colors ${
+            index === serviceSlide ? 'bg-red-500' : 'bg-muted-foreground/30'
+          }`}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
+      
     {/* <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
