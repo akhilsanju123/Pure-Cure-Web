@@ -106,8 +106,14 @@
 //   );
 // };
 
-// export default ImageSlider;
 
+
+
+
+
+
+
+// export default ImageSlider;
 
 import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -202,17 +208,16 @@ const ImageSlider = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout>();
 
-  // Auto-scroll functionality
+  // Auto-scroll functionality every 2 seconds
   const startAutoScroll = () => {
+    stopAutoScroll(); // avoid multiple intervals
     intervalRef.current = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % slides.length);
-    }, 5000); // Change slide every 5 seconds
+    }, 2000); // 2 seconds
   };
 
   const stopAutoScroll = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
+    if (intervalRef.current) clearInterval(intervalRef.current);
   };
 
   useEffect(() => {
@@ -221,11 +226,8 @@ const ImageSlider = () => {
   }, []);
 
   useEffect(() => {
-    if (isHovered) {
-      stopAutoScroll();
-    } else {
-      startAutoScroll();
-    }
+    if (isHovered) stopAutoScroll();
+    else startAutoScroll();
   }, [isHovered]);
 
   const nextSlide = () => {
@@ -247,13 +249,13 @@ const ImageSlider = () => {
   };
 
   return (
-    <div 
+    <div
       ref={sliderRef}
       className="relative h-[500px] overflow-hidden rounded-2xl shadow-2xl"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Slides container */}
+      {/* Slides */}
       <div className="relative h-full w-full">
         {slides.map((slide, index) => (
           <div
@@ -278,7 +280,7 @@ const ImageSlider = () => {
         ))}
       </div>
 
-      {/* Navigation arrows */}
+      {/* Arrows */}
       <Button
         variant="ghost"
         size="icon"
@@ -288,7 +290,6 @@ const ImageSlider = () => {
       >
         <ChevronLeft className="h-6 w-6" />
       </Button>
-
       <Button
         variant="ghost"
         size="icon"
@@ -299,7 +300,7 @@ const ImageSlider = () => {
         <ChevronRight className="h-6 w-6" />
       </Button>
 
-      {/* Dots indicator */}
+      {/* Dots */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
         {slides.map((_, index) => (
           <button
