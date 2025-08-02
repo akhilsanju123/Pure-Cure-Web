@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ImageSlider from '@/components/ImageSlider';
 import {
   Users,
   Award,
@@ -285,10 +286,12 @@ const Index = () => {
             />
           ))}
         </div>
+
+        
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-pest-gray">
+      <section className="py-16 ">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => {
@@ -310,17 +313,87 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Image Slider */} 
+      <div className="max-w-4xl mx-auto text-center">
+            
+          <div className="max-w-5xl mx-auto">
+             <h2 className="text-4xl font-bold mb-8 text-pest-black">Gallery</h2>
+            <ImageSlider />
+          </div>
+          </div>
+
       {/* Who We Are Section */}
-      <section className="py-16">
+      <section className="py-16 ">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-8 text-pest-black">Who We Are</h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Pest Cure Solutions & Fumigation is a leading pest control company with over a decade of experience. 
-              We specialize in comprehensive pest management solutions for residential, commercial, and industrial clients. 
-              Our team of certified professionals uses the latest techniques and eco-friendly products to ensure 
-              effective pest elimination while maintaining safety standards.
+              Pest Cure Solutions & Fumigation is a renowned Pest Management and Fumigation Company with over 20 years of expertise. 
+              We deliver comprehensive and Integrated Pest Management Solutions for residential, commercial, and industrial clients.
             </p>
+
+            {/* Our Services */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold mb-6 text-pest-black">Our Services Include:</h3>
+              <div className="text-left max-w-2xl mx-auto space-y-3">
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-muted-foreground">General Pest Management.</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-muted-foreground">Fumigation for shipping companies and export/import houses.</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-muted-foreground">Fumigation for Wood Packaging Material (ISPM 15 Standards) for international trade.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Our Team */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold mb-6 text-pest-black">Our Team</h3>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                Our team of certified and trained professionals utilizes the latest techniques and eco-friendly products from reputed companies to ensure effective pest management while maintaining the highest safety standards.
+              </p>
+            </div>
+
+            {/* Key Highlights */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold mb-6 text-pest-black">Key Highlights</h3>
+              <div className="text-left max-w-3xl mx-auto space-y-3">
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-muted-foreground">Comprehensive Integrated Pest Management Solutions.</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-muted-foreground">Termite Management - Complete Termite Prevention and Elimination in pre and post Construction structures.</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-muted-foreground">Fumigation of Warehouses, Godowns, Export/Import Containers, Wood Packaging Material and Ships with Restricted Chemicals like Methyl Bromide and Aluminium Phosphide.</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-muted-foreground">Experienced Trained and Certified Professionals.</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-muted-foreground">Eco-friendly products and latest techniques.</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-muted-foreground">High safety standards.</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-muted-foreground">Specialized Treatments for Wood Packaging Material as per NSPM & ISPM 15 Standards of Fumigation Regulations for international trade.</p>
+                </div>
+              </div>
+            </div>
+
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -341,136 +414,36 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      {/* Services Section */}
-      <section className="py-20">
+    {/* <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Our Services</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Our Team</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Comprehensive pest control solutions tailored to your specific needs
+            Our team of certified and trained professionals utilizes the latest techniques and eco-friendly products from reputed companies to ensure effective pest management while maintaining the highest safety standards.
           </p>
         </div>
-
-        {/* Desktop View */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <Card
-                key={index}
-                className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg"
-              >
-                <CardContent className="p-8">
-                  <div className="relative mb-6">
-                    <img
-                      src={serviceImages[index]}
-                      alt={service.title}
-                      className="w-full h-48 object-cover rounded-lg"
-                    />
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-foreground">Why Choose Us?</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground mb-3">Advanced Technology</h3>
+                    <p className="text-muted-foreground text-lg leading-relaxed">We use the latest pest control technology and eco-friendly solutions.</p>
                   </div>
-                  <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="h-8 w-8 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-4 text-center">{service.title}</h3>
-                  <p className="text-muted-foreground text-lg leading-relaxed text-center mb-6">
-                    {service.description}
-                  </p>
-                  <div className="text-center">
-                    <Button asChild variant="outline">
-                      <Link to={service.path}>Learn More</Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
-
-        {/* Mobile Slideshow */}
-        <div className="md:hidden">
-          <div className="relative">
-            <div className="overflow-hidden rounded-xl">
-              <div
-                className="flex transition-transform duration-300 ease-in-out"
-                style={{ transform: `translateX(-${serviceSlide * 100}%)` }}
-              >
-                {services.map((service, index) => {
-                  const Icon = service.icon;
-                  return (
-                    <div key={index} className="w-full flex-shrink-0 px-4">
-                      <Card className="shadow-lg border-0">
-                        <CardContent className="p-6">
-                          <div className="relative mb-4">
-                            <img
-                              src={serviceImages[index]}
-                              alt={service.title}
-                              className="w-full h-40 object-cover rounded-lg"
-                            />
-                          </div>
-                          <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <Icon className="h-6 w-6 text-primary" />
-                          </div>
-                          <h3 className="text-xl font-bold text-foreground mb-3 text-center">{service.title}</h3>
-                          <p className="text-muted-foreground leading-relaxed text-center mb-4">
-                            {service.description}
-                          </p>
-                          <div className="text-center">
-                            <Button asChild variant="outline" size="sm">
-                              <Link to={service.path}>Learn More</Link>
-                            </Button>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Navigation Arrows */}
-            <button
-  onClick={prevService}
-  className="absolute left-2 top-1/2 -translate-y-1/2 bg-primary text-primary-foreground rounded-full p-2 shadow-lg hover:bg-primary/90 transition-colors z-10"
-  aria-label="Previous service"
->
-  <ChevronLeft className="h-5 w-5" />
-</button>
-<button
-  onClick={nextService}
-  className="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-primary-foreground rounded-full p-2 shadow-lg hover:bg-primary/90 transition-colors z-10"
-  aria-label="Next service"
->
-  <ChevronRight className="h-5 w-5" />
-</button>
-
-
-            {/* Dots Indicator */}
-            <div className="flex justify-center mt-6 space-x-2">
-              {services.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setServiceSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === serviceSlide ? 'bg-primary' : 'bg-muted-foreground/30'
-                  }`}
-                  aria-label={`Go to service ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="text-center mt-12">
-          <Button asChild size="lg">
-            <Link to="/services">View All Services</Link>
-          </Button>
-        </div>
+                </div>
+                
+                </div>
+                </div>
+                </div>
+                </div>
       </div>
-    </section>
+    </section> */}
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-pest-gray">
+      <section className="py-20 ">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-foreground">Why Choose Us?</h2>
@@ -527,7 +500,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 bg-pest-gray">
+      <section className="py-16 ">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 text-pest-black">Client Testimonials</h2>
