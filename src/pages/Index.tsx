@@ -69,37 +69,37 @@ const Index = () => {
     {
       icon: Bug,
       title: "Termite Management",
-      description: "Complete termite elimination and prevention",
+      description: "Complete termite Management and prevention",
       path: "/services/termite-management",
     },
     {
       icon: Target,
       title: "Rodent Control",
-      description: "Safe and effective rodent removal",
+      description: "Safe and effective rodent Management",
       path: "/services/rodent-management",
     },
     {
       icon: Shield,
       title: "Cockroach Control",
-      description: "Professional cockroach elimination",
+      description: "Professional cockroach Management",
       path: "/services/cockroach-management",
     },
     {
       icon: Zap,
       title: "Flying Insect Control",
-      description: "Comprehensive flying insect management",
+      description: "Thermal Fogging for Effective Flying Insect Management",
       path: "/services/flying-insect-management",
     },
     {
       icon: Home,
       title: "Mosquito Control",
-      description: "Effective mosquito prevention and control",
+      description: "Effective mosquito Management",
       path: "/services/mosquito-management",
     },
     {
       icon: Building,
       title: "Warehouse Fumigation",
-      description: "Industrial fumigation services",
+      description: "Thermal Fogging in Warehouses",
       path: "/services/fumigation-warehouse",
     },
   ];
@@ -466,7 +466,7 @@ const Index = () => {
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               Pest Cure Solutions & Fumigation is a renowned Pest Management and
-              Fumigation Company with over 20 years of expertise. We deliver
+              Fumigation Company with over 20 years of experience. We deliver
               comprehensive and Integrated Pest Management Solutions for
               residential, commercial, and industrial clients.
             </p>
@@ -480,7 +480,7 @@ const Index = () => {
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                   <p className="text-muted-foreground">
-                    General Pest Management.
+                    Integrated General Pest Management.
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
@@ -505,7 +505,7 @@ const Index = () => {
                 Our Team
               </h3>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Our team of certified and trained professionals utilizes the
+                Our team of certified and trained professionals utilize the
                 latest techniques and eco-friendly products from reputed
                 companies to ensure effective pest management while maintaining
                 the highest safety standards.
@@ -536,7 +536,7 @@ const Index = () => {
                   <p className="text-muted-foreground">
                     Fumigation of Warehouses, Godowns, Export/Import Containers,
                     Wood Packaging Material and Ships with Restricted Chemicals
-                    like Methyl Bromide and Aluminium Phosphide.
+                    like Methyl Bromide and Aluminium Phosphide (We are accredited by the Government of India).
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
@@ -702,7 +702,7 @@ const Index = () => {
                       Advanced Technology
                     </h3>
                     <p className="text-muted-foreground text-lg leading-relaxed">
-                      We use the latest pest control technology and eco-friendly
+                      We use the latest pest Management Techniques & eco-friendly
                       solutions.
                     </p>
                   </div>
@@ -714,7 +714,7 @@ const Index = () => {
                       Experienced Team
                     </h3>
                     <p className="text-muted-foreground text-lg leading-relaxed">
-                      59 expert professionals with years of field experience.
+                      59 well Trined experienced expert professionals.
                     </p>
                   </div>
                 </div>
@@ -725,7 +725,7 @@ const Index = () => {
                       Comprehensive Services
                     </h3>
                     <p className="text-muted-foreground text-lg leading-relaxed">
-                      From residential to industrial fumigation solutions.
+                      From residential and Commercial to industrial fumigation solutions.
                     </p>
                   </div>
                 </div>
@@ -738,7 +738,7 @@ const Index = () => {
                       Affordable Pricing
                     </h3>
                     <p className="text-muted-foreground text-lg leading-relaxed">
-                      Competitive rates with transparent pricing and no hidden
+                      Competitive rates with transparent pricing without any hidden
                       costs.
                     </p>
                   </div>
@@ -856,7 +856,7 @@ const Index = () => {
                       Message *
                     </label>
                     <Textarea
-                      placeholder="Describe your pest problem and location details"
+                      placeholder="Describe your pest problem and location details please."
                       rows={4}
                     />
                   </div>

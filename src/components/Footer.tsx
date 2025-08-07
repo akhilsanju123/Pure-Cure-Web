@@ -14,7 +14,7 @@ const Footer = () => {
               className="h-12 w-auto"
             />
             <p className="text-sm text-gray-300">
-              Professional pest control and fumigation services with over 15,000 successful projects.
+              Professional pest Management and fumigation services with over 15,000 successful projects and 14,700 satisfied clients.
             </p>
             <div className="flex space-x-4">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="group">
@@ -61,7 +61,7 @@ const Footer = () => {
               <li><Link to="/services/cockroach-management" className="hover:text-primary transition-colors">Cockroach Control</Link></li>
               <li><Link to="/services/fumigation-warehouse" className="hover:text-primary transition-colors">Warehouse Fumigation</Link></li>
               <li><Link to="/services/fumigation-vessels" className="hover:text-primary transition-colors">Vessel Fumigation</Link></li>
-               <li><Link to="/services/snake-repellent" className="hover:text-primary transition-colors">Snake Repellent</Link></li>
+               <li><Link to="/services/snake-repellent" className="hover:text-primary transition-colors">Snake Control</Link></li>
                <li><Link to="/services/wood-borer-control" className="hover:text-primary transition-colors">Wood Borer Control</Link></li>
                <li><Link to="/services/fumigation-warehouse" className="hover:text-primary transition-colors">Fumigation Of Warehouse</Link></li>
                <li><Link to="/services/fumigation-vessels" className="hover:text-primary transition-colors">Fumigation of Vessels</Link></li>
