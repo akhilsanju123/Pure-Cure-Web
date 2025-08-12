@@ -15,7 +15,7 @@ const FumigationOfVessels = () => {
           <div className="container mx-auto px-4">
             <div className="text-center">
               <Ship className="h-16 w-16 text-blue-700 mx-auto mb-6" />
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Fumigation of Vessels</h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Fumigation of Vessel</h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 Maintain biosecurity and protect cargo with expert vessel fumigation using industry-standard protocols.
               </p>
@@ -28,7 +28,7 @@ const FumigationOfVessels = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <img
-                src="https://i.pinimg.com/1200x/81/c2/d0/81c2d03a14625f4e9c698fa45d5c572e.jpg"
+                src="https://5.imimg.com/data5/SELLER/Default/2025/4/505034307/CA/DT/SX/58249670/vessel-fumigation-service.jpg"
                 alt="Vessel Fumigation Service"
                 className="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg"
               />
