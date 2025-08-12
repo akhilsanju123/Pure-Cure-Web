@@ -17,7 +17,7 @@ import LizardManagement from "./pages/services/LizardManagement";
 import SnakeRepellent from "./pages/services/SnakeRepellent";
 import WoodBorerControl from "./pages/services/WoodBorerControl";
 import FumigationOfWarehouse from "./pages/services/FumigationofWarehouse";
-import FumigationOfVessels from "./pages/services/FumigationofVessels";
+import FumigationOfVessel from "./pages/services/FumigationofVessel";
 import FumigationOfContainers from "./pages/services/FumigationofContainers";
 
 const queryClient = new QueryClient();
@@ -42,7 +42,7 @@ const App = () => (
           <Route path="/services/snake-repellent" element={<SnakeRepellent />} />
           <Route path="/services/wood-borer-control" element={<WoodBorerControl />} />
           <Route path="/services/fumigation-warehouse" element={<FumigationOfWarehouse />} />
-          <Route path="/services/fumigation-vessels" element={<FumigationOfVessels />} />
+          <Route path="/services/fumigation-vessel" element={<FumigationOfVessel />} />
           <Route path="/services/fumigation-containers" element={<FumigationOfContainers />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

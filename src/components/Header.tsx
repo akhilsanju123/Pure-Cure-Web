@@ -23,7 +23,7 @@ const Header = () => {
     { name: 'Snake Repellent', path: '/services/snake-repellent' },
     { name: 'Wood Borer Control', path: '/services/wood-borer-control' },
     { name: 'Fumigation of Warehouse', path: '/services/fumigation-warehouse' },
-    { name: 'Fumigation of Vessels', path: '/services/fumigation-vessels' },
+    { name: 'Fumigation of Vessel', path: '/services/fumigation-vessel' },
     { name: 'Fumigation of Containers', path: '/services/fumigation-containers' },
   ];
 

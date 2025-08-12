@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Ship } from 'lucide-react';
 
-const FumigationOfVessels = () => {
+const FumigationOfVessel = () => {
   return (
     <>
       <Header />
@@ -113,4 +113,4 @@ const FumigationOfVessels = () => {
   );
 };
 
-export default FumigationOfVessels;
+export default FumigationOfVessel;

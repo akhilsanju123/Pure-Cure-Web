@@ -97,10 +97,10 @@ const Services = () => {
     },
     {
       icon: Ship,
-      title: "Fumigation of Vessels",
+      title: "Fumigation of Vessel",
       description: "Marine fumigation services for ships and vessels in compliance with international standards.",
       features: ["Pre-shipment fumigation", "In-transit fumigation", "IMO compliance", "Certificate issuance"],
-      path: "/services/fumigation-vessels",
+      path: "/services/fumigation-vessel",
       popular: false
     },
     {
